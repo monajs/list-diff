@@ -51,7 +51,7 @@ describe('test diff.js', () => {
 		return resList
 	}
 
-	it('Removing items in the front', () => {
+	it('Removing items in the front.', () => {
 		const oldList = [
 			{ key: '1', name: 'a' },
 			{ key: '2', name: 'b' },
@@ -69,7 +69,7 @@ describe('test diff.js', () => {
 		assertListEqual(newList, list)
 	})
 
-	it('Removing items in the middel', () => {
+	it('Removing items in the middel.', () => {
 		const oldList = [
 			{ key: '1', name: 'a' },
 			{ key: '2', name: 'b' },
@@ -81,8 +81,134 @@ describe('test diff.js', () => {
 			{ key: '4', name: 'd' }
 		]
 		const diff = listDiff(oldList, newList, 'key')
-		// diff.moves.length.should.equal(2)
-		// const list = patch(oldList, diff.moves)
-		// assertListEqual(newList, list)
+		diff.moves.length.should.equal(2)
+		const list = patch(oldList, diff.moves)
+		assertListEqual(newList, list)
+	})
+
+	it('Removing items in the end.', () => {
+		const oldList = [
+			{ key: '1', name: 'a' },
+			{ key: '2', name: 'b' },
+			{ key: '3', name: 'c' },
+			{ key: '4', name: 'd' }
+		]
+		const newList = [
+			{ key: '1', name: 'a' }
+		]
+		const diff = listDiff(oldList, newList, 'key')
+		diff.moves.length.should.equal(3)
+		const list = patch(oldList, diff.moves)
+		assertListEqual(newList, list)
+	})
+
+	it('Inserting items in the front.', () => {
+		const oldList = [
+			{ key: '3', name: 'c' },
+			{ key: '4', name: 'd' }
+		]
+		const newList = [
+			{ key: '1', name: 'a' },
+			{ key: '2', name: 'b' },
+			{ key: '3', name: 'c' },
+			{ key: '4', name: 'd' }
+		]
+		const diff = listDiff(oldList, newList, 'key')
+		diff.moves.length.should.equal(2)
+		const list = patch(oldList, diff.moves)
+		assertListEqual(newList, list)
+	})
+
+	it('Inserting items in the middle.', () => {
+		const oldList = [
+			{ key: '1', name: 'a' },
+			{ key: '3', name: 'c' },
+			{ key: '4', name: 'd' }
+		]
+		const newList = [
+			{ key: '1', name: 'a' },
+			{ key: '2', name: 'b' },
+			{ key: '3', name: 'c' },
+			{ key: '4', name: 'd' }
+		]
+		const diff = listDiff(oldList, newList, 'key')
+		diff.moves.length.should.equal(1)
+		const list = patch(oldList, diff.moves)
+		assertListEqual(newList, list)
+	})
+
+	it('Inserting items in the end.', () => {
+		const oldList = [
+			{ key: '1', name: 'a' }
+		]
+		const newList = [
+			{ key: '1', name: 'a' },
+			{ key: '2', name: 'b' },
+			{ key: '3', name: 'c' },
+			{ key: '4', name: 'd' }
+		]
+		const diff = listDiff(oldList, newList, 'key')
+		diff.moves.length.should.equal(3)
+		const list = patch(oldList, diff.moves)
+		assertListEqual(newList, list)
+	})
+
+	it('Moving items from front to end.', () => {
+		const oldList = [
+			{ key: '1', name: 'a' },
+			{ key: '2', name: 'b' },
+			{ key: '3', name: 'c' },
+			{ key: '4', name: 'd' }
+		]
+		const newList = [
+			{ key: '3', name: 'c' },
+			{ key: '1', name: 'a' },
+			{ key: '4', name: 'd' },
+			{ key: '2', name: 'b' }
+		]
+		const diff = listDiff(oldList, newList, 'key')
+		diff.moves.length.should.equal(2)
+		const list = patch(oldList, diff.moves)
+		assertListEqual(newList, list)
+	})
+
+	it('Moving items from end to front.', () => {
+		const oldList = [
+			{ key: '1', name: 'a' },
+			{ key: '2', name: 'b' },
+			{ key: '3', name: 'c' },
+			{ key: '4', name: 'd' }
+		]
+		const newList = [
+			{ key: '2', name: 'b' },
+			{ key: '3', name: 'c' },
+			{ key: '1', name: 'a' },
+			{ key: '4', name: 'd' }
+		]
+		const diff = listDiff(oldList, newList, 'key')
+		diff.moves.length.should.equal(1)
+		const list = patch(oldList, diff.moves)
+		assertListEqual(newList, list)
+	})
+
+	it('Moving items randomly.', () => {
+		const oldList = [
+			{ key: '1', name: 'a' },
+			{ key: '2', name: 'b' },
+			{ key: '3', name: 'c' },
+			{ key: '4', name: 'd' }
+		]
+		const newList = [
+			{ key: '2', name: 'b' },
+			{ key: '5', name: 'e' },
+			{ key: '6', name: 'f' },
+			{ key: '1', name: 'a' },
+			{ key: '7', name: 'g' },
+			{ key: '4', name: 'd' }
+		]
+		const diff = listDiff(oldList, newList, 'key')
+		diff.moves.length.should.equal(5)
+		const list = patch(oldList, diff.moves)
+		assertListEqual(newList, list)
 	})
 })

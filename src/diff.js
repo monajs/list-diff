@@ -22,7 +22,7 @@ function listDiff (oldTree, newTree, key) {
 		if (has(oldTreeMap, currentItem[key])) {
 			const oldItem = oldTreeMap[currentItem[key]]
 			const mountIndex = oldItem._mountIndex
-			if (lastIndex >= mountIndex) {
+			if (lastIndex > mountIndex) {
 				// move
 				const move = {
 					type: types.MOVE,
@@ -59,7 +59,6 @@ function listDiff (oldTree, newTree, key) {
 		}
 	})
 
-	console.log(moves)
 	return {
 		moves
 	}
