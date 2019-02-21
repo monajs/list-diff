@@ -8,12 +8,7 @@
  */
 
 const { each } = require('./util')
-
-const types = {
-	MOVE: 'move',
-	REMOVE: 'remove',
-	INSERT: 'insert'
-}
+const { types } = require('./config')
 
 function listDiff (oldTree, newTree, key) {
 	let oldTreeMap = list2Map(oldTree, key)
@@ -29,22 +24,24 @@ function listDiff (oldTree, newTree, key) {
 			const mountIndex = oldItem._mountIndex
 			if (lastIndex >= mountIndex) {
 				// move
-				moves.push({
+				const move = {
 					type: types.MOVE,
 					originIndex: mountIndex,
 					currentIndex: nextIndex,
 					item: currentItem
-				})
+				}
+				moves.push(move)
 			}
 			lastIndex = Math.max(mountIndex, lastIndex)
 		} else {
 			// insert
-			moves.push({
+			const move = {
 				type: types.INSERT,
 				originIndex: null,
 				currentIndex: nextIndex,
 				item: currentItem
-			})
+			}
+			moves.push(move)
 		}
 		nextIndex = nextIndex + 1
 	}
@@ -52,12 +49,13 @@ function listDiff (oldTree, newTree, key) {
 	each(oldTree, (v, i) => {
 		if (!has(newTreeMap, v[key])) {
 			// remove
-			moves.push({
+			const move = {
 				type: types.REMOVE,
 				originIndex: i,
 				currentIndex: null,
 				item: v
-			})
+			}
+			moves.push(move)
 		}
 	})
 
