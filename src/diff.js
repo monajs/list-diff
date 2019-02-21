@@ -59,6 +59,7 @@ function listDiff (oldTree, newTree, key) {
 		}
 	})
 
+	console.log(moves)
 	return {
 		moves
 	}
@@ -67,8 +68,9 @@ function listDiff (oldTree, newTree, key) {
 function list2Map (list, key) {
 	let map = {}
 	each(list, (v, i) => {
-		v._mountIndex = i
-		map[v[key]] = v
+		const item = Object.assign({}, v)
+		item._mountIndex = i
+		map[v[key]] = item
 	})
 	return map
 }
