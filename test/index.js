@@ -1,4 +1,30 @@
 require('babel-register')
-const listDiff = require('../index.js')
+const listDiff = require('../src/diff.js')
 
-listDiff(['a', 'b', 'c', 'd'], ['f', 'c', 'd', 'a'])
+const diff = listDiff([{
+	key: '1',
+	name: 'a'
+}, {
+	key: '2',
+	name: 'b'
+}, {
+	key: '3',
+	name: 'c'
+}, {
+	key: '4',
+	name: 'd'
+}], [{
+	key: '6',
+	name: 'f'
+}, {
+	key: '3',
+	name: 'c'
+}, {
+	key: '4',
+	name: 'd'
+}, {
+	key: '1',
+	name: 'a'
+}], 'key')
+
+console.log(diff.moves)
