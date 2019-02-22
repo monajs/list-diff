@@ -2,12 +2,8 @@
 
 ✨✨ 对比两个列表的差异，计算最小编辑距离
 
-<p align="center">
-    <img src="https://img.shields.io/npm/v/@monajs/list-diff.svg?style=flat" alt="npm version" />
-    <img src="https://travis-ci.org/youzan/@monajs/list-diff.svg?branch=master" alt="Build Status" />
-    <img src="https://img.shields.io/npm/dm/@monajs/list-diff.svg" alt="downloads" />
-    <img src="https://img.shields.io/codecov/c/github/youzan/list-diff/dev.svg" alt="Coverage Status" />
-</p>
+[![npm](https://img.shields.io/npm/v/@monajs/list-diff.svg?style=flat-square)](https://www.npmjs.com/package/@monajs/list-diff)
+[![npm](https://img.shields.io/npm/dt/@monajs/list-diff.svg?style=flat-square)](https://www.npmjs.com/package/@monajs/list-diff)
 
 ## 相关文档
 
