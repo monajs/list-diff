@@ -11,7 +11,7 @@ const { each } = require('./util')
 const { types } = require('./config')
 
 function listDiff (oldTree, newTree, key) {
-	let oldTreeMap = list2Map(oldTree, key)
+	const oldTreeMap = list2Map(oldTree, key)
 	const newTreeMap = list2Map(newTree, key)
 	let lastIndex = 0
 	let nextIndex = 0
