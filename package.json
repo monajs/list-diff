@@ -19,7 +19,7 @@
         "diff"
     ],
     "author": "yangxi",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/monajs/list-diff/issues"
     },
