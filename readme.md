@@ -40,5 +40,42 @@ const diff = listDiff(oldList, newList, 'key')
 console.log(diff.moves)
 ```
 
+#### output:
+```
+{
+    moves: [
+    {
+        type: 'insert',
+        originIndex: null,
+        currentIndex: 1,
+        item: [Object]
+    },
+    {
+        type: 'insert',
+        originIndex: null,
+        currentIndex: 2,
+        item: [Object]
+    },
+    {
+        type: 'move',
+        originIndex: 0,
+        currentIndex: 3,
+        item: [Object]
+    },
+    {
+        type: 'insert',
+        originIndex: null,
+        currentIndex: 4,
+        item: [Object]
+    },
+    {
+        type: 'remove',
+        originIndex: 2,
+        currentIndex: null,
+        item: [Object]
+    }]
+}
+```
+
 ## 联系我
 > 微信：599321378
