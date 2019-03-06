@@ -42,39 +42,32 @@ console.log(diff.moves)
 
 #### output:
 ```
-{
-    moves: [
-    {
-        type: 'insert',
-        originIndex: null,
-        currentIndex: 1,
-        item: [Object]
-    },
-    {
-        type: 'insert',
-        originIndex: null,
-        currentIndex: 2,
-        item: [Object]
-    },
-    {
-        type: 'move',
-        originIndex: 0,
-        currentIndex: 3,
-        item: [Object]
-    },
-    {
-        type: 'insert',
-        originIndex: null,
-        currentIndex: 4,
-        item: [Object]
-    },
-    {
-        type: 'remove',
-        originIndex: 2,
-        currentIndex: null,
-        item: [Object]
-    }]
-}
+[{
+    type: 'insert',
+    originIndex: null,
+    currentIndex: 1,
+    item: { key: '5', name: 'e' }
+}, {
+    type: 'insert',
+    originIndex: null,
+    currentIndex: 2,
+    item: { key: '6', name: 'f' }
+}, {
+    type: 'move',
+    originIndex: 0,
+    currentIndex: 3,
+    item: { key: '1', name: 'a' }
+}, {
+    type: 'insert',
+    originIndex: null,
+    currentIndex: 4,
+    item: { key: '7', name: 'g' }
+}, {
+    type: 'remove',
+    originIndex: 2,
+    currentIndex: null,
+    item: { key: '3', name: 'c' }
+}]
 ```
 
 ## 联系我
