@@ -1,4 +1,4 @@
-# Mona - List Diff（O(N)）
+# List Diff（O(N)）
 
 ✨✨ 对比两个列表的差异，计算最小编辑距离
 
@@ -71,4 +71,4 @@ console.log(diff.moves)
 ```
 
 ## 联系我
-> 微信：599321378
+> 微信：yx12032331
